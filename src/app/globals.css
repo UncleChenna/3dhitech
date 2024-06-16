@@ -2,32 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+/* /* For Webkit browsers (Chrome, Safari, Edge) */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 12px;
+    /* width of the entire scrollbar */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* color of the scrollbar track */
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #FAE084;
+    /* color of the scrollbar thumb */
+    border-radius: 10px;
+    /* roundness of the scrollbar thumb */
+    border: 3px solid #f1f1f1;
+    /* creates padding around thumb */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #FAE084;
+    /* color of the scrollbar thumb on hover */
+}
+
+/* For Firefox */
+.custom-scrollbar {
+    scrollbar-width: thin;
+    /* makes the scrollbar thinner */
+    scrollbar-color: #FAE084 #f1f1f1;
+    /* thumb and track color */
+}
+
+.active-link {
+    @apply text-primary border-b-2 border-primary font-semibold;
+}
+
+.custom-carousel-indicators .mantine-Carousel-indicator {
+     @apply bg-secondary;
+}
+
+.custom-carousel-indicators .mantine-Carousel-indicator[data-active] {
+    @apply bg-primary;
 }
